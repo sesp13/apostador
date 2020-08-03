@@ -44,6 +44,7 @@
                         <th>Valor stake</th>
                         <th>Estado</th>
                         <th>Valor final</th>
+                        <th>Ganancia</th>
                         <th>Fecha</th>
                         <th>Acciones</th>
                     </tr>
@@ -76,6 +77,9 @@
                                 <?php echo $apuesta['valorFinal']; ?>
                             </th>
                             <th>
+                                <?php echo $apuesta['valorFinal'] != null ? $apuesta['valorFinal'] - $apuesta['valorStake'] : "" ?>
+                            </th>
+                            <th>
                                 <?php echo $apuesta['fecha']; ?>
                             </th>
                             <th>
@@ -87,13 +91,5 @@
             </table>
         </div>
     </div>
-
 </div>
-
-
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/popper.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+<?php include_once 'partials/footer.php' ?>

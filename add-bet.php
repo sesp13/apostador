@@ -18,7 +18,7 @@
                 <?php $arrayStakes = getAllStakes($conn); ?>
                 <select class="form-control" name="stake" id="stake">
                     <?php foreach ($arrayStakes as $stake) : ?>
-                        <option value="<?php echo $stake['id'] ?>">
+                        <option value="<?php echo $stake['id'] ?>" stake="<?php echo $stake['valor'] ?>" class="option-stake">
                             <?php echo $stake['nombre'] ?>
                         </option>
                     <?php endforeach; ?>
@@ -30,7 +30,7 @@
             </div>
             <div class="form-group col-6">
                 <label for="">Valor Stake</label>
-                <input type="text" name="valorStake" id="valorStake" class="form-control">
+                <input type="text" name="valorStake" id="valorStake" class="form-control" value="<?php echo $arrayStakes[0]['valor'] ?>">
             </div>
             <div class="form-group col-12">
                 <input type="submit" class="btn btn-success" name="enviar" value="Agregar">
@@ -38,3 +38,4 @@
         </form>
     </div>
 </div>
+<?php include_once 'partials/footer.php' ?>

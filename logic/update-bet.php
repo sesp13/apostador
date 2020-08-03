@@ -27,7 +27,9 @@ if (isset($_POST['enviar'])) {
     if($tipo == "0"){
         $bankActual = $bankActual + floatval($valorFinal);
     }  else {
-        $bankActual = $bankActual - floatval($valorStake) + floatval($valorFinal);
+        if($valorFinal != 0){
+            $bankActual = $bankActual - floatval($valorStake) + floatval($valorFinal);
+        }
     }
 
     updateBankAndStakes($conn,$bankActual);

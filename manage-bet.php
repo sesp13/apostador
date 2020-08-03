@@ -1,9 +1,9 @@
 <?php include_once 'partials/header.php' ?>
 <?php
-include_once 'logic/update-bet.php';
 $apuesta = getBetById($conn, $_GET['id']);
 ?>
 <div class="container mt-5">
+    <?php include_once 'logic/update-bet.php'; ?>
     <a href="index.php">
         <h1>Banco de apuestas</h1>
     </a>
@@ -41,7 +41,8 @@ $apuesta = getBetById($conn, $_GET['id']);
             </div>
             <div class="form-group col-6">
                 <label for="">Cuota</label>
-                <input type="text" name="cuota" id="cuota" class="form-control" value="<?php echo $apuesta['cuota'] ?>" disabled>
+                <input type="text" class="form-control" value="<?php echo $apuesta['cuota'] ?>" disabled>
+                <input type="hidden" name="cuota" id="cuota" class="form-control" value="<?php echo $apuesta['cuota'] ?>">
             </div>
             <div class="form-group col-6">
                 <label for="">Valor stake</label>
@@ -62,3 +63,4 @@ $apuesta = getBetById($conn, $_GET['id']);
         </form>
     </div>
 </div>
+<?php include_once 'partials/footer.php' ?>

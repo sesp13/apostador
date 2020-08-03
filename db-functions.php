@@ -97,6 +97,7 @@ function getAllBets($conn)
     FROM apuesta apuesta
     INNER JOIN stake stake ON apuesta.idStake = stake.id
     INNER JOIN estado estado ON apuesta.idEstado = estado.id
+    ORDER BY apuesta.id DESC
     ";
     $resultado = mysqli_query($conn, $consulta);
     while ($row = mysqli_fetch_assoc($resultado)) {
