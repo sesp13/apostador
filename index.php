@@ -38,6 +38,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Descripción</th>
                         <th>Stake</th>
                         <th>Cuota</th>
                         <th>Valor stake</th>
@@ -55,6 +56,9 @@
                         <tr>
                             <th>
                                 <?php echo $apuesta['id']; ?>
+                            </th>
+                            <th>
+                                <?php echo $apuesta['descripcion']; ?>
                             </th>
                             <th>
                                 <?php echo $apuesta['stake']; ?>

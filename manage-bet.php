@@ -28,6 +28,13 @@ $apuesta = getBetById($conn, $_GET['id']);
                 </select>
             </div>
             <div class="form-group col-6">
+                <label for="">Tipo</label>
+                <select class="form-control" name="tipo" id="tipo">
+                    <option value="0">Fin de apuesta</option>
+                    <option value="1">Edición de apuesta</option>
+                </select>
+            </div>
+            <div class="form-group col-6">
                 <label for="">Id</label>
                 <input type="text" class="form-control" value="<?php echo $apuesta['id'] ?>" disabled>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $apuesta['id'] ?>">
@@ -38,7 +45,8 @@ $apuesta = getBetById($conn, $_GET['id']);
             </div>
             <div class="form-group col-6">
                 <label for="">Valor stake</label>
-                <input type="text" name="valorStake" id="valorStake" class="form-control" value="<?php echo $apuesta['valorStake'] ?>" disabled>
+                <input type="text" class="form-control" value="<?php echo $apuesta['valorStake'] ?>" disabled>
+                <input type="hidden" name="valorStake" id="valorStake" value="<?php echo $apuesta['valorStake'] ?>">
             </div>
             <div class="form-group col-6">
                 <label for="">Valor Final</label>
