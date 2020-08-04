@@ -25,6 +25,7 @@ $(document).ready(function () {
   });
 
   $(".option-stake").click(function () {
+    console.log("Evento iniciado");
     var elemento = $(this);
     var valor = elemento.attr("stake");
     $("#valorStake").val(valor);

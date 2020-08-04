@@ -20,19 +20,28 @@ if (isset($_POST['enviar'])) {
         'id' => $id
     ];
 
-    $msg = updateBet($conn,$array);
-    
-    $bankActual = getBancoActual($conn);
+    $msg = updateBet($conn, $array);
 
-    if($tipo == "0"){
+    $bankActual = getBancoActual($conn);
+    $apuesta = getBetById($conn, $id);
+
+    if ($tipo == "0") {
         $bankActual = $bankActual + floatval($valorFinal);
-    }  else {
-        if($valorFinal != 0){
-            $bankActual = $bankActual - floatval($valorStake) + floatval($valorFinal);
+    } else {
+        $movimientoAnterior =  abs(floatval($apuesta['valorFinal']) - floatval($apuesta['valorStake']));
+        $gananciaNueva = floatval($valorFinal) - floatval($valorStake);
+        if ($apuesta['idEstado'] == '2') {
+            $bankActual =  $bankActual - $movimientoAnterior + $gananciaNueva;
+        }
+        if ($apuesta['idEstado'] == '3') {
+            $bankActual = $bankActual + $movimientoAnterior + $gananciaNueva;
+        }
+        if ($apuesta['idEstado'] = '4') {
+            $bankActual = $bankActual + $gananciaNueva;
         }
     }
 
-    updateBankAndStakes($conn,$bankActual);
+    updateBankAndStakes($conn, $bankActual);
     echo "
     <div class='alert alert-success'>$msg</div>
     ";
