@@ -25,6 +25,9 @@
                         Banco Actual: <?php echo getBancoActual($conn) ?>
                     </div>
                     <div class="col-12">
+                        Total en movimientos: <?php echo getRealMovements($conn) ?>
+                    </div>
+                    <div class="col-12">
                         Porcentaje del bank: <?php echo getPorcentaje($conn) ?> %
                     </div>
                 </div>
@@ -39,6 +42,11 @@
                             <?php echo "{$stake['nombre']} - valor: {$stake['valor']}"; ?>
                         </div>
                     <?php endforeach; ?>
+                    <div class="col-12 mt-2">
+                        <a href="logic/update-stakes.php" class="btn btn-primary" tooltip="Actualiza el valor de los stakes después de cambiar el valor del bank por db">
+                            Corregir Bank
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

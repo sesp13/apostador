@@ -44,7 +44,7 @@ function getPorcentaje($conn)
     return $array['porcentaje'];
 }
 
-function updateBankAndStakes($conn,$bankActual)
+function updateBankAndStakes($conn, $bankActual)
 {
     updateBank($conn, $bankActual);
     $bank = getBank($conn);
@@ -57,6 +57,29 @@ function updateBankAndStakes($conn,$bankActual)
             'valor' => $stake['multiplicador'] * $bank['valorActual'] * $bank['porcentaje'] / 100,
         ]);
     }
+}
+
+function setRealBank($conn)
+{
+    $contador = getRealMovements($conn);
+    $valorReal = getBancoInicial($conn) + $contador;
+    updateBankAndStakes($conn, $valorReal);
+}
+
+function getRealMovements($conn)
+{
+    $consulta = "SELECT valorStake, valorFinal FROM apuesta";
+    $resultado = mysqli_query($conn, $consulta);
+    $contador = 0;
+
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $valorStake = $row['valorStake'];
+        $valorFinal = $row['valorFinal'];
+        $valorFinal = $valorFinal == '' || $valorFinal == null ? 0 : $valorFinal;
+        $contador += $valorFinal - $valorStake;
+    }
+
+    return $contador;
 }
 
 //Funciones del stake
@@ -86,7 +109,7 @@ function updateStake($conn, $array)
 
 
 //Funciones de apuestas
-function getAllBets($conn)
+function getAllBets($conn, $limit = null)
 {
     $array = [];
     $consulta = "
@@ -99,6 +122,11 @@ function getAllBets($conn)
     INNER JOIN estado estado ON apuesta.idEstado = estado.id
     ORDER BY apuesta.id DESC
     ";
+
+    if (isset($limit)) {
+        $consulta .= "LIMIT $limit";
+    }
+
     $resultado = mysqli_query($conn, $consulta);
     while ($row = mysqli_fetch_assoc($resultado)) {
         array_push($array, [

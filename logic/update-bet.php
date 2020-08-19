@@ -1,6 +1,8 @@
 <?php
 include_once 'db.php';
 include_once 'db-functions.php';
+$showAlert = false;
+$msg = '';
 
 if (isset($_POST['enviar'])) {
     //Recolectar los datos
@@ -42,7 +44,5 @@ if (isset($_POST['enviar'])) {
     }
 
     updateBankAndStakes($conn, $bankActual);
-    echo "
-    <div class='alert alert-success'>$msg</div>
-    ";
+    $showAlert = true;
 }

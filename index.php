@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $arrayApuestas = getAllBets($conn);
+                    $arrayApuestas = getAllBets($conn, 20);
                     foreach ($arrayApuestas as $apuesta) :
                     ?>
                         <tr>

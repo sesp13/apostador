@@ -3,6 +3,9 @@
 <?php
 $apuesta = getBetById($conn, $_GET['id']);
 ?>
+<?php if ($showAlert) : ?>
+    <div class="alert alert-success"><?php echo $msg ?></div>
+<?php endif; ?>
 <h2 class="text-center mt-3">
     Gestionar apuesta
 </h2>
