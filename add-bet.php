@@ -12,7 +12,7 @@
         <div class="form-group col-6">
             <label for="">Stake</label>
             <?php $arrayStakes = getAllStakes($conn); ?>
-            <select class="form-control" name="stake" id="stake">
+            <select class="form-control" name="stake" id="stake-select">
                 <?php foreach ($arrayStakes as $stake) : ?>
                     <option value="<?php echo $stake['id'] ?>" stake="<?php echo $stake['valor'] ?>" class="option-stake">
                         <?php echo $stake['nombre'] ?>

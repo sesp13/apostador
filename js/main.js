@@ -24,10 +24,15 @@ $(document).ready(function () {
     }
   });
 
-  $(".option-stake").click(function () {
-    console.log("Evento iniciado");
-    var elemento = $(this);
-    var valor = elemento.attr("stake");
-    $("#valorStake").val(valor);
+  $("#stake-select").change(function () {
+    var idOption = $(this).val();
+    $(".option-stake").each(function () {
+      var elemento = $(this);
+      var valorOption = elemento.attr("value");
+      var valorStake = elemento.attr("stake");
+      if(valorOption == idOption){
+        $("#valorStake").val(valorStake);
+      }
+    });
   });
 });
