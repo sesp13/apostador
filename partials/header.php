@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 <div class="row">
                     <?php
                     $arrayStakes = getAllStakes($conn);
@@ -46,6 +46,16 @@
                         <a href="logic/update-stakes.php" class="btn btn-primary" tooltip="Actualiza el valor de los stakes después de cambiar el valor del bank por db">
                             Corregir Bank
                         </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-12">
+                        Apuestas ganadas: <?php echo countWonBets($conn); ?>
+                    </div>
+                    <div class="col-12">
+                        Apuestas perdidas: <?php echo countLostBets($conn); ?>
                     </div>
                 </div>
             </div>

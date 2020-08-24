@@ -199,6 +199,29 @@ function updateBet($conn, $array)
     }
 }
 
+function countLostBets($conn){
+    $consulta = "
+    SELECT COUNT(id) as 'Numero'
+    FROM apuesta
+    WHERE idEstado = 3
+    ";
+    $resultado = mysqli_query($conn, $consulta);
+    $array = mysqli_fetch_assoc($resultado);
+    return $array['Numero'];
+}
+
+function countWonBets($conn){
+    $consulta = "
+    SELECT COUNT(id) as 'Numero'
+    FROM apuesta
+    WHERE idEstado = 2
+    ";
+    $resultado = mysqli_query($conn, $consulta);
+    $array = mysqli_fetch_assoc($resultado);
+    return $array['Numero'];
+}
+
+
 //Funciones de Estado
 function getAllStates($conn)
 {
