@@ -29,20 +29,10 @@ if (isset($_POST['enviar'])) {
 
     if ($tipo == "0") {
         $bankActual = $bankActual + floatval($valorFinal);
+        updateBankAndStakes($conn, $bankActual);
     } else {
-        $movimientoAnterior =  abs(floatval($apuesta['valorFinal']) - floatval($apuesta['valorStake']));
-        $gananciaNueva = floatval($valorFinal) - floatval($valorStake);
-        if ($apuesta['idEstado'] == '2') {
-            $bankActual =  $bankActual - $movimientoAnterior + $gananciaNueva;
-        }
-        if ($apuesta['idEstado'] == '3') {
-            $bankActual = $bankActual + $movimientoAnterior + $gananciaNueva;
-        }
-        if ($apuesta['idEstado'] = '4') {
-            $bankActual = $bankActual + $gananciaNueva;
-        }
+        setRealBank($conn);
     }
 
-    updateBankAndStakes($conn, $bankActual);
     $showAlert = true;
 }

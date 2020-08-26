@@ -35,4 +35,11 @@ $(document).ready(function () {
       }
     });
   });
+
+  $('.moneda').each(function () { 
+    let selector = $(this);
+    let valorParseado = Intl.NumberFormat().format(selector.text().trim());
+    selector.text(valorParseado);
+   });
+
 });

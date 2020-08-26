@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Banco de apuestas</title>
 </head>
 
@@ -19,16 +20,16 @@
             <div class="col-6">
                 <div class="row">
                     <div class="col-12">
-                        Banco Inicial: <?php echo getBancoInicial($conn) ?>
+                        Banco Inicial: <span class="moneda"> <?php echo getBancoInicial($conn) ?> </span>
                     </div>
                     <div class="col-12">
-                        Banco Actual: <?php echo getBancoActual($conn) ?>
+                        Banco Actual:  <span class="moneda"> <?php echo getBancoActual($conn) ?> </span>
                     </div>
                     <div class="col-12">
-                        Total en movimientos: <?php echo getRealMovements($conn) ?>
+                        Total en movimientos: <span class="moneda"> <?php echo getRealMovements($conn) ?> </span>
                     </div>
                     <div class="col-12">
-                        Porcentaje del bank: <?php echo getPorcentaje($conn) ?> %
+                        Porcentaje del bank: <span class="moneda"> <?php echo getPorcentaje($conn) ?></span> %
                     </div>
                 </div>
             </div>
@@ -39,7 +40,7 @@
                     foreach ($arrayStakes as $stake) :
                     ?>
                         <div class="col-12">
-                            <?php echo "{$stake['nombre']} - valor: {$stake['valor']}"; ?>
+                        <?php echo "{$stake['nombre']} - valor: <span class='moneda'>{$stake['valor']}"; ?> </span>
                         </div>
                     <?php endforeach; ?>
                     <div class="col-12 mt-2">

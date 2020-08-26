@@ -9,13 +9,13 @@
                     <tr>
                         <th>Id</th>
                         <th>Descripción</th>
-                        <th>Stake</th>
+                        <th style="width: 90px;">Stake</th>
                         <th>Cuota</th>
                         <th>Valor stake</th>
                         <th>Estado</th>
                         <th>Valor final</th>
                         <th>Ganancia</th>
-                        <th>Fecha</th>
+                        <th class="contenedor-fecha">Fecha</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -37,16 +37,16 @@
                             <th>
                                 <?php echo $apuesta['cuota']; ?>
                             </th>
-                            <th>
+                            <th class="moneda">
                                 <?php echo $apuesta['valorStake']; ?>
                             </th>
                             <th>
                                 <?php echo $apuesta['estado']; ?>
                             </th>
-                            <th>
+                            <th class="moneda">
                                 <?php echo $apuesta['valorFinal']; ?>
                             </th>
-                            <th>
+                            <th class="moneda">
                                 <?php echo $apuesta['valorFinal'] != null ? $apuesta['valorFinal'] - $apuesta['valorStake'] : "" ?>
                             </th>
                             <th>
