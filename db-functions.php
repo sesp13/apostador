@@ -139,7 +139,8 @@ function getAllBets($conn, $limit = null)
             'cuota' => $row['cuota'],
             'valorStake' => $row['valorStake'],
             'valorFinal' => $row['valorFinal'],
-            'fecha' => $row['fecha']
+            'fecha' => $row['fecha'],
+            'clase' => $row['idEstado'] == 2 ? 'color-green' : 'color-red'
         ]);
     }
 

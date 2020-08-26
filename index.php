@@ -28,7 +28,7 @@
                             <th>
                                 <?php echo $apuesta['id']; ?>
                             </th>
-                            <th>
+                            <th class="text-left">
                                 <?php echo $apuesta['descripcion']; ?>
                             </th>
                             <th>
@@ -40,13 +40,13 @@
                             <th class="moneda">
                                 <?php echo $apuesta['valorStake']; ?>
                             </th>
-                            <th>
+                            <th class="<?php echo $apuesta['clase']; ?>">
                                 <?php echo $apuesta['estado']; ?>
                             </th>
                             <th class="moneda">
                                 <?php echo $apuesta['valorFinal']; ?>
                             </th>
-                            <th class="moneda">
+                            <th class="moneda <?php echo $apuesta['clase']; ?>">
                                 <?php echo $apuesta['valorFinal'] != null ? $apuesta['valorFinal'] - $apuesta['valorStake'] : "" ?>
                             </th>
                             <th>

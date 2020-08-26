@@ -1,3 +1,15 @@
 .contenedor-fecha{
     width: 150px;
 }
+
+th{
+    text-align: center;
+}
+
+.color-red{
+    color: red;
+}
+
+.color-green{
+    color: green;
+}
