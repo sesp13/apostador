@@ -6,7 +6,7 @@ $msg = '';
 
 if (isset($_POST['enviar'])) {
     //Recolectar los datos
-    $descripcion = $_POST['descripcion'];
+    $descripcion = utf8_decode($_POST['descripcion']);
     $idEstado = $_POST['idEstado'];
     $valorFinal = $_POST['valorFinal'];
     $valorStake = $_POST['valorStake'];

@@ -131,7 +131,7 @@ function getAllBets($conn, $limit = null)
     while ($row = mysqli_fetch_assoc($resultado)) {
         array_push($array, [
             'id' => $row['id'],
-            'descripcion' => $row['descripcion'],
+            'descripcion' => utf8_encode($row['descripcion']),
             'idEstado' => $row['idEstado'],
             'estado' => $row['estado'],
             'idStake' => $row['idStake'],
@@ -200,7 +200,8 @@ function updateBet($conn, $array)
     }
 }
 
-function countLostBets($conn){
+function countLostBets($conn)
+{
     $consulta = "
     SELECT COUNT(id) as 'Numero'
     FROM apuesta
@@ -211,7 +212,8 @@ function countLostBets($conn){
     return $array['Numero'];
 }
 
-function countWonBets($conn){
+function countWonBets($conn)
+{
     $consulta = "
     SELECT COUNT(id) as 'Numero'
     FROM apuesta
@@ -238,4 +240,15 @@ function getAllStates($conn)
         ]);
     }
     return $array;
+}
+
+//Corregir mal formato de datos en la base de datos
+function corregirEncode($conn)
+{
+    $apuestas = getAllBets($conn);
+    foreach ($apuestas as $apuesta) {
+        $descripcion = utf8_decode($apuesta['descripcion']);
+        $consulta = "UPDATE apuesta SET descripcion = '$descripcion' WHERE id = {$apuesta['id']}";
+        $resultado = mysqli_query($conn, $consulta);
+    }
 }

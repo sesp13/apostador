@@ -13,7 +13,7 @@ $apuesta = getBetById($conn, $_GET['id']);
     <form class="form row" method="POST">
         <div class="form-group col-12">
             <label for="">Descripción</label>
-            <textarea name="descripcion" id="descripcion" class="form-control"><?php echo $apuesta['descripcion'] ?></textarea>
+            <textarea name="descripcion" id="descripcion" class="form-control"><?php echo utf8_encode($apuesta['descripcion']) ?></textarea>
         </div>
         <div class="form-group col-6">
             <label for="">Estado</label>
