@@ -129,6 +129,21 @@ function getAllBets($conn, $limit = null)
 
     $resultado = mysqli_query($conn, $consulta);
     while ($row = mysqli_fetch_assoc($resultado)) {
+
+        $estado = $row['idEstado'];
+        if ($estado == 1){
+            $clase = "color-primary";
+        }
+        else if($estado == 2){
+            $clase = "color-green";
+        }
+        else if($estado == 3){
+            $clase = "color-red";
+        } else {
+            $clase = "";
+        }
+
+
         array_push($array, [
             'id' => $row['id'],
             'descripcion' => utf8_encode($row['descripcion']),
@@ -140,7 +155,7 @@ function getAllBets($conn, $limit = null)
             'valorStake' => $row['valorStake'],
             'valorFinal' => $row['valorFinal'],
             'fecha' => $row['fecha'],
-            'clase' => $row['idEstado'] == 2 ? 'color-green' : 'color-red'
+            'clase' => $clase
         ]);
     }
 
@@ -161,11 +176,12 @@ function getBetById($conn, $id)
 
 
 function addBet($conn, $array)
-{
+{   
+    $descripcion = utf8_decode($array['descripcion']);
     $consulta = "
     INSERT INTO apuesta(descripcion,idEstado,idStake,cuota,valorStake,fecha)
     VALUES(
-        '{$array['descripcion']}',
+        '$descripcion',
         1,
         {$array['idStake']},
         {$array['couta']},
