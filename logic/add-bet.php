@@ -1,10 +1,12 @@
 <?php
+//Poner las importaciones en el nivel donde se ejecute este código
 include_once 'db.php';
 include_once 'db-functions.php';
+include_once 'helpers/functions.php';
 
 if (isset($_POST['enviar'])) {
     //Recolectar los datos
-    $descripcion = $_POST['descripcion'];
+    $descripcion = utf8_encode($_POST['descripcion']);
     $stake = $_POST['stake'];
     $cuota = $_POST['couta'];
     $valorStake = $_POST['valorStake'];

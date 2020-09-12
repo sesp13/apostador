@@ -1,6 +1,8 @@
 <?php
+//Poner las importaciones en el nivel donde se ejecute este código
 include_once 'db.php';
 include_once 'db-functions.php';
+include_once 'helpers/functions.php';
 $showAlert = false;
 $msg = '';
 
