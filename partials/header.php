@@ -17,7 +17,7 @@
             <h1>Banco de apuestas</h1>
         </a>
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
                 <div class="row">
                     <div class="col-12">
                         Banco Inicial: <span class="moneda"> <?php echo getBancoInicial($conn) ?> </span>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-lg-3">
                 <div class="row">
                     <?php
                     $arrayStakes = getAllStakes($conn);
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-lg-3">
                 <div class="row">
                     <div class="col-12">
                         Apuestas ganadas: <?php echo countWonBets($conn); ?>

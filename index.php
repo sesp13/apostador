@@ -4,7 +4,7 @@
             <a href="add-bet.php" class="btn btn-success">Agregar apuesta</a>
         </div>
         <div class="col-12 mt-3">
-            <table class="table">
+            <table class="table table-responsive">
                 <thead>
                     <tr>
                         <th>Id</th>
