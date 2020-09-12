@@ -84,7 +84,8 @@ $(document).ready(function () {
     let sesion = localStorage.getItem("sesion");
     if (sesion != null) {
       let hoy = new Date();
-      if (hoy > sesion) {
+      let fechaSesion = new Date(parseInt(sesion));
+      if (hoy > fechaSesion) {
         localStorage.removeItem("sesion");
         return false;
       } else {
@@ -99,8 +100,7 @@ $(document).ready(function () {
     let hoy = new Date();
     let diasCalulados = 1000 * 60 * 60 * 24 * dias;
     let suma = hoy.getTime() + diasCalulados;
-    let fechaPosterior = new Date(suma);
 
-    return fechaPosterior;
+    return suma;
   }
 });
