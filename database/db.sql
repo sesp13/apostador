@@ -48,3 +48,11 @@ CONSTRAINT pk_apuesta PRIMARY KEY(id),
 CONSTRAINT fk_apuesta_estado FOREIGN KEY(idEstado) REFERENCES estado(id),
 CONSTRAINT fk_apuesta_stake FOREIGN KEY(idStake) REFERENCES stake(id)
 )ENGINE=InnoDb;
+
+CREATE TABLE usuario(
+id              int(255) auto_increment not null,
+nombre          varchar(50) not null,
+correo          varchar(100) not null UNIQUE,
+contrasena      varchar(255) not null,
+CONSTRAINT pk_usuario PRIMARY KEY(id)
+)ENGINE=InnoDb;

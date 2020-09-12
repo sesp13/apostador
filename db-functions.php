@@ -131,13 +131,11 @@ function getAllBets($conn, $limit = null)
     while ($row = mysqli_fetch_assoc($resultado)) {
 
         $estado = $row['idEstado'];
-        if ($estado == 1){
+        if ($estado == 1) {
             $clase = "color-primary";
-        }
-        else if($estado == 2){
+        } else if ($estado == 2) {
             $clase = "color-green";
-        }
-        else if($estado == 3){
+        } else if ($estado == 3) {
             $clase = "color-red";
         } else {
             $clase = "";
@@ -176,7 +174,7 @@ function getBetById($conn, $id)
 
 
 function addBet($conn, $array)
-{   
+{
     $descripcion = utf8_decode($array['descripcion']);
     $consulta = "
     INSERT INTO apuesta(descripcion,idEstado,idStake,cuota,valorStake,fecha)
@@ -267,4 +265,17 @@ function corregirEncode($conn)
         $consulta = "UPDATE apuesta SET descripcion = '$descripcion' WHERE id = {$apuesta['id']}";
         $resultado = mysqli_query($conn, $consulta);
     }
+}
+
+
+//Funciones de usuario
+function getUser($conn, $email)
+{
+    $array = [];
+    $consulta = "
+    SELECT * FROM usuario WHERE correo = '$email' LIMIT 1
+    ";
+    $resultado = mysqli_query($conn, $consulta);
+    $row = mysqli_fetch_assoc($resultado);
+    return $row;
 }
