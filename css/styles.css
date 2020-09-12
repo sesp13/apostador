@@ -21,3 +21,7 @@ th{
 #host{
     display: none;
 }
+
+#loginModal{
+    background-color: black;
+}
