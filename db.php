@@ -1,8 +1,10 @@
 <?php
 
-//Conexión a la base de datos
-$conn = mysqli_connect('localhost','root','','apostador');
+//Base de datos local
+// $conn = mysqli_connect('localhost','root','','apostador');
 
+//Base de datos remota
+$conn = mysqli_connect('www.db4free.net','sesp13','hw36NMz*nzD3AE#','apostador');
 
 //Comprobar la conexión
 // if(mysqli_connect_errno()){
