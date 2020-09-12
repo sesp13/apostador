@@ -12,6 +12,7 @@
 <body>
     <?php include_once 'db.php'; ?>
     <?php include_once 'db-functions.php'; ?>
+    <?php include_once 'helpers/functions.php'; ?>
     <div class="container mt-5">
         <a href="index.php">
             <h1>Banco de apuestas</h1>

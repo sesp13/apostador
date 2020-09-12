@@ -29,7 +29,7 @@
                                 <?php echo $apuesta['id']; ?>
                             </th>
                             <th class="text-left">
-                                <?php echo $apuesta['descripcion']; ?>
+                                <?php echo decodificarString($apuesta['descripcion']); ?>
                             </th>
                             <th>
                                 <?php echo $apuesta['stake']; ?>

@@ -33,6 +33,7 @@ CONSTRAINT pk_stake PRIMARY KEY(id)
 INSERT INTO stake VALUES(null, 'Stake 1', 5000, 1);
 INSERT INTO stake VALUES(null, 'Stake 2', 10000, 2);
 INSERT INTO stake VALUES(null, 'Stake 3', 15000, 3);
+INSERT INTO stake VALUES(null, 'Stake 0.5', 2500, 0.5);
 
 CREATE TABLE apuesta(
 id              int(255) auto_increment not null,
