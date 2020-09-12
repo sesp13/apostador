@@ -40,13 +40,13 @@ $apuesta = getBetById($conn, $_GET['id']);
         </div>
         <div class="form-group col-6">
             <label for="">Cuota</label>
-            <input type="text" class="form-control" value="<?php echo $apuesta['cuota'] ?>" disabled>
-            <input type="hidden" name="cuota" id="cuota" class="form-control" value="<?php echo $apuesta['cuota'] ?>">
+            <!-- <input type="text" class="form-control" value="< echo $apuesta['cuota'] ?>" disabled> -->
+            <input type="text" name="cuota" id="cuota" class="form-control" value="<?php echo $apuesta['cuota'] ?>">
         </div>
         <div class="form-group col-6">
             <label for="">Valor stake</label>
-            <input type="text" class="form-control" value="<?php echo $apuesta['valorStake'] ?>" disabled>
-            <input type="hidden" name="valorStake" id="valorStake" value="<?php echo $apuesta['valorStake'] ?>">
+            <!-- <input type="text" class="form-control" value="echo $apuesta['valorStake'] ?>" disabled> -->
+            <input type="text" class="form-control" name="valorStake" id="valorStake" value="<?php echo $apuesta['valorStake'] ?>">
         </div>
         <div class="form-group col-6">
             <label for="">Valor Final</label>

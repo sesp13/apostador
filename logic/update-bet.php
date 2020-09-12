@@ -10,8 +10,9 @@ if (isset($_POST['enviar'])) {
     //Recolectar los datos
     $descripcion = codificarString($_POST['descripcion']);
     $idEstado = $_POST['idEstado'];
-    $valorFinal = $_POST['valorFinal'];
+    $valorFinal = $_POST['valorFinal'] != null && $_POST['valorFinal'] != '' ? $_POST['valorFinal'] : 'NULL';
     $valorStake = $_POST['valorStake'];
+    $cuota = $_POST['cuota'];
     $fecha = $_POST['fecha'];
     $tipo = $_POST['tipo'];
     $id = $_POST['id'];
@@ -20,8 +21,10 @@ if (isset($_POST['enviar'])) {
         'descripcion' => $descripcion,
         'idEstado' => $idEstado,
         'valorFinal' => $valorFinal,
+        'valorStake' => $valorStake,
         'fecha' => $fecha,
-        'id' => $id
+        'id' => $id,
+        'cuota' => $cuota   
     ];
 
     $msg = updateBet($conn, $array);

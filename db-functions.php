@@ -203,7 +203,9 @@ function updateBet($conn, $array)
     descripcion = '{$array['descripcion']}',
     idEstado = {$array['idEstado']},
     valorFinal = {$array['valorFinal']},
-    fecha = '{$array['fecha']}'
+    valorStake = {$array['valorStake']},
+    fecha = '{$array['fecha']}',
+    cuota = {$array['cuota']}
     WHERE id = {$array['id']}
     ";
     $resultado = mysqli_query($conn, $consulta);
