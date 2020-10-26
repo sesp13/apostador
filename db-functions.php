@@ -52,9 +52,20 @@ function updateBankAndStakes($conn, $bankActual)
     $arrayStakes = getAllStakes($conn);
 
     foreach ($arrayStakes as $stake) {
+        //Calcular el stake nuevo
+        $porcentaje = $bank['porcentaje'];
+        $multiplicador = $stake['multiplicador'];
+        $valorActual = $bank['valorActual'];
+        
+        if ($multiplicador > 1) {
+            $porcentajeNuevo = $multiplicador - 1 + $porcentaje;
+        } else {
+            $porcentajeNuevo = $multiplicador * $porcentaje;
+        }
+
         updateStake($conn, [
             'id' => $stake['id'],
-            'valor' => $stake['multiplicador'] * $bank['valorActual'] * $bank['porcentaje'] / 100,
+            'valor' => $valorActual * $porcentajeNuevo / 100,
         ]);
     }
 }
