@@ -53,7 +53,7 @@
         </div>
 
         <a href="index.php">
-            <h1>Banco de apuestas</h1>
+            <h1>Banco de apuestas para Ardillas</h1>
         </a>
         <div class="row">
             <div class="col-12 col-lg-6">

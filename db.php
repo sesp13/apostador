@@ -6,9 +6,11 @@
 //Base de datos remota
 // $conn = mysqli_connect('www.db4free.net','sesp13','hw36NMz*nzD3AE#','apostador');
 
-//Clever cloud
+//Clever cloud  
 //Host-User-Pass-DB
-$conn = mysqli_connect('byrvzgxbut1hzitzlhub-mysql.services.clever-cloud.com','um1qciqnpista0gu','iNdGbs0TxklBCmKXAJAe','byrvzgxbut1hzitzlhub');
+// $conn = mysqli_connect('byrvzgxbut1hzitzlhub-mysql.services.clever-cloud.com','um1qciqnpista0gu','iNdGbs0TxklBCmKXAJAe','byrvzgxbut1hzitzlhub');
+//Clever cloud Dienton 
+$conn = mysqli_connect('bfwhtkmbrodfsbquyygf-mysql.services.clever-cloud.com','ukbnaz5tatiaswmy','zbn6bkIQYM4opcqYAkzt','bfwhtkmbrodfsbquyygf');
 
 //Comprobar la conexión
 // if(mysqli_connect_errno()){
