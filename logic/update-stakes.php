@@ -1,6 +1,6 @@
 <?php 
-include_once '../db.php';
-include_once '../db-functions.php';
+include_once '../database/conn.php';
+include_once '../database/db-functions.php';
 
 setRealBank($conn);
 

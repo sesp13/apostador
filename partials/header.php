@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <?php include_once 'db.php'; ?>
-    <?php include_once 'db-functions.php'; ?>
+    <?php include_once 'database/conn.php'; ?>
+    <?php include_once 'database/db-functions.php'; ?>
     <?php include_once 'helpers/functions.php'; ?>
     <?php include_once 'helpers/global-info.php'; ?>
     <p id="host"><?php echo $HOST ?></p>
