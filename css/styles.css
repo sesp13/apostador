@@ -25,3 +25,15 @@ th{
 #loginModal{
     background-color: black;
 }
+
+.ardilla-img{
+    width: 200px;
+    height: 200px;
+}
+
+.ardilla-feliz{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+}

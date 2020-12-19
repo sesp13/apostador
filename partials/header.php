@@ -71,6 +71,7 @@
                         Porcentaje del bank: <span class="moneda"> <?php echo getPorcentaje($conn) ?></span> %
                     </div>
                 </div>
+                <img src="assets/ardilla.png" alt="Imagen de una ardilla" class="ardilla-img">
             </div>
             <div class="col-12 col-lg-3">
                 <div class="row">

@@ -1,3 +1,6 @@
+<div class="container">
+    <img src="assets/ardilla-feliz.webp" alt="Ardilla Feliz" class="ardilla-feliz">
+</div>
 </div>
 <footer class="mt-2 text-center bg-dark text-white p-3">
     Desarrollado por SESP13 Developments &copy; <?php echo date('Y') ?>
