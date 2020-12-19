@@ -1,14 +1,14 @@
 <?php
 
 //Base de datos local
-// $conn = mysqli_connect('localhost','root','','apostador');
+$conn = mysqli_connect('localhost','root','','apostador');
 
 //Base de datos remota
 // $conn = mysqli_connect('www.db4free.net','sesp13','hw36NMz*nzD3AE#','apostador');
 
 //Clever cloud
 //Host-User-Pass-DB
-$conn = mysqli_connect('byrvzgxbut1hzitzlhub-mysql.services.clever-cloud.com','um1qciqnpista0gu','iNdGbs0TxklBCmKXAJAe','byrvzgxbut1hzitzlhub');
+// $conn = mysqli_connect('byrvzgxbut1hzitzlhub-mysql.services.clever-cloud.com','um1qciqnpista0gu','iNdGbs0TxklBCmKXAJAe','byrvzgxbut1hzitzlhub');
 
 //Comprobar la conexión
 // if(mysqli_connect_errno()){

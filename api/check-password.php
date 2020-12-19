@@ -1,8 +1,8 @@
 <?php
-include_once 'db.php';
-include_once 'db-functions.php';
-include_once 'helpers/functions.php';
-include_once 'helpers/global-info.php';
+include_once '../database/conn.php';
+include_once '../database/db-functions.php';
+include_once '../helpers/functions.php';
+include_once '../helpers/global-info.php';
 
 $array = [];
 if (isset($_POST)) {
@@ -23,7 +23,5 @@ if (isset($_POST)) {
             $array['status'] = 400;
         }
     }
-
-
     echo json_encode($array, JSON_UNESCAPED_UNICODE);
 }

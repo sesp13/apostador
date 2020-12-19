@@ -62,7 +62,7 @@ $(document).ready(function () {
     //Petición ajax
     $.ajax({
       type: "POST",
-      url: `${host}check-password.php`,
+      url: `${host}/api/check-password.php`,
       data: {
         email: correo,
         password: contrasena,
