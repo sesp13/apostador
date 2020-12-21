@@ -56,7 +56,7 @@ function updateBankAndStakes($conn, $bankActual)
         $porcentaje = $bank['porcentaje'];
         $multiplicador = $stake['multiplicador'];
         $valorActual = $bank['valorActual'];
-        
+
         if ($multiplicador > 1) {
             $porcentajeNuevo = $multiplicador - 1 + $porcentaje;
         } else {
@@ -201,9 +201,9 @@ function addBet($conn, $array)
 
     $resultado = mysqli_query($conn, $consulta);
     if ($resultado) {
-        return 'Inserción de datos correcta';
+        return ['success' => true, 'message' => 'Inserción de datos correcta'];
     } else {
-        return 'error' . mysqli_error($conn);
+        return ['success' => false, 'message' => 'error' . mysqli_error($conn)];
     }
 }
 
