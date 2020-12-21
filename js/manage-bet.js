@@ -1,12 +1,16 @@
-$("#add-bet-form").submit(function (event) {
+$("#manage-bet-form").submit(function (event) {
   event.preventDefault();
 
   //Armado del objeto
   let apuesta = {
     descripcion: $("#descripcion").val(),
-    stake: $("#stake-select").val(),
-    cuota: $("#cuota").val(),
+    idEstado: $("#idEstado").val(),
+    valorFinal: $("#valorFinal").val(),
     valorStake: $("#valorStake").val(),
+    cuota: $("#cuota").val(),
+    fecha: $("#fecha").val(),
+    tipo: $("#tipo").val(),
+    id: $("#id").val(),
     enviar: true,
   };
 
@@ -39,7 +43,6 @@ $("#add-bet-form").submit(function (event) {
   };
 
   let host = $("#host").text();
-  let url = `${host}/api/add-bet.php`;
-
+  let url = `${host}/api/update-bet.php`;
   hacerPeticion(url, "POST", apuesta, successFunction, errorFunction);
 });
