@@ -14,7 +14,7 @@ $("#add-bet-form").submit(function (event) {
     response = JSON.parse(response);
     if (response.success) {
       Swal.fire({
-        title: "Éxito",
+        title: "Una ardilla ha agregado una apuesta",
         icon: "success",
         text: response.message,
       }).then(() => {
