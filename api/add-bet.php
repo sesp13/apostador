@@ -14,7 +14,7 @@ if (isset($_POST['enviar'])) {
     //Variable de control para el despliegue de la respuesta
     $hasResponse = false;
 
-    //Validaciones
+    //-----------------------Validaciones-------------------------------
     if ($descripcion == null || $descripcion == "") {
         $result = ['success' => false, 'message' => 'La descripción no puede ser nula'];
         $hasResponse = true;
@@ -24,6 +24,12 @@ if (isset($_POST['enviar'])) {
         $result = ['success' => false, 'message' => 'El valor de la cuota no es válido'];
         $hasResponse = true;
     }
+
+    if (($valorStake == null || $valorStake == ""  || !is_numeric($valorStake)) && !$hasResponse) {
+        $result = ['success' => false, 'message' => 'El valor del stake no es válido'];
+        $hasResponse = true;
+    }
+    //----------------- Fin Validaciones ----------------------------------
 
     if (!$hasResponse) {
         $array = [
