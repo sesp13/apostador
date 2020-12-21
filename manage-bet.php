@@ -1,16 +1,11 @@
-<?php include_once 'logic/update-bet.php'; ?>
-<?php include_once 'partials/header.php' ?>
-<?php
+<?php include_once 'partials/header.php';
 $apuesta = getBetById($conn, $_GET['id']);
 ?>
-<?php if ($showAlert) : ?>
-    <div class="alert alert-success"><?php echo $msg ?></div>
-<?php endif; ?>
 <h2 class="text-center mt-3">
     Gestionar apuesta
 </h2>
 <div class="form-section">
-    <form class="form row" method="POST">
+    <form class="form row" method="POST" id="manage-bet-form">
         <div class="form-group col-12">
             <label for="">Descripción</label>
             <textarea name="descripcion" id="descripcion" class="form-control"><?php echo $apuesta['descripcion'] ?></textarea>
@@ -63,3 +58,4 @@ $apuesta = getBetById($conn, $_GET['id']);
 </div>
 
 <?php include_once 'partials/footer.php' ?>
+<script src="js/manage-bet.js"></script>

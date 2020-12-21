@@ -221,9 +221,9 @@ function updateBet($conn, $array)
     ";
     $resultado = mysqli_query($conn, $consulta);
     if ($resultado) {
-        return 'Actualización de datos correcta';
+        return ['success' => true, 'message' => 'La apuesta se ha editado correctamente'];
     } else {
-        return 'error' . mysqli_error($conn);
+        return ['success' => false, 'message' => 'error' . mysqli_error($conn)];
     }
 }
 
