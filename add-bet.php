@@ -2,9 +2,8 @@
 <h2 class="text-center mt-3">
     Agregar apuesta
 </h2>
-<?php include_once 'logic/add-bet.php' ?>
 <div class="form-section">
-    <form class="form row" method="POST">
+    <form class="form row" method="POST" id="add-bet-form">
         <div class="form-group col-12">
             <label for="">Descripción</label>
             <textarea name="descripcion" id="descripcion" class="form-control"></textarea>
@@ -22,7 +21,7 @@
         </div>
         <div class="form-group col-6">
             <label for="">Cuota</label>
-            <input type="text" name="couta" id="cuota" class="form-control">
+            <input type="text" name="cuota" id="cuota" class="form-control">
         </div>
         <div class="form-group col-6">
             <label for="">Valor Stake</label>
@@ -34,3 +33,4 @@
     </form>
 </div>
 <?php include_once 'partials/footer.php' ?>
+<script src="js/add-bet.js"></script>
