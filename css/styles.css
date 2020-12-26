@@ -1,25 +1,25 @@
-.contenedor-fecha{
-    width: 150px;
+.contenedor-fecha {
+  width: 150px;
 }
 
-th{
-    text-align: center;
+th {
+  text-align: center;
 }
 
-.color-red{
-    color: red;
+.color-red {
+  color: red;
 }
 
-.color-green{
-    color: green;
+.color-green {
+  color: green;
 }
 
-.color-primary{
-    color: #007bff;
+.color-primary {
+  color: #007bff;
 }
 
-#host{
-    display: none;
+#host {
+  display: none;
 }
 
 #loginModal{
@@ -36,4 +36,18 @@ th{
     margin: 0 auto;
     width: 50%;
     height: 50%;
+}
+#loginModal {
+  background-color: black;
+}
+
+#pagination-menu {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  #pagination-menu {
+    overflow: scroll;
+  }
 }
