@@ -171,6 +171,53 @@ function getAllBets($conn, $limit = null)
     return $array;
 }
 
+function getBetsPaginated($conn, $startPage, $itemsPerPage)
+{
+    $array = [];
+    $consulta = "
+    SELECT 
+    estado.nombre as 'estado',
+    stake.nombre as 'stake',
+    apuesta.*
+    FROM apuesta apuesta
+    INNER JOIN stake stake ON apuesta.idStake = stake.id
+    INNER JOIN estado estado ON apuesta.idEstado = estado.id
+    ORDER BY apuesta.id DESC LIMIT $startPage , $itemsPerPage
+    ";
+
+    $resultado = mysqli_query($conn, $consulta);
+    while ($row = mysqli_fetch_assoc($resultado)) {
+
+        $estado = $row['idEstado'];
+        if ($estado == 1) {
+            $clase = "color-primary";
+        } else if ($estado == 2) {
+            $clase = "color-green";
+        } else if ($estado == 3) {
+            $clase = "color-red";
+        } else {
+            $clase = "";
+        }
+
+
+        array_push($array, [
+            'id' => $row['id'],
+            'descripcion' => utf8_encode($row['descripcion']),
+            'idEstado' => $row['idEstado'],
+            'estado' => $row['estado'],
+            'idStake' => $row['idStake'],
+            'stake' => $row['stake'],
+            'cuota' => $row['cuota'],
+            'valorStake' => $row['valorStake'],
+            'valorFinal' => $row['valorFinal'],
+            'fecha' => $row['fecha'],
+            'clase' => $clase
+        ]);
+    }
+
+    return $array;
+}
+
 function getBetById($conn, $id)
 {
     $array = [];
@@ -225,6 +272,13 @@ function updateBet($conn, $array)
     } else {
         return ['success' => false, 'message' => 'error' . mysqli_error($conn)];
     }
+}
+
+function countAllBets($conn){
+    $consulta = "SELECT COUNT(id) as 'total' FROM apuesta";
+    $resultado = mysqli_query($conn, $consulta);
+    $array = mysqli_fetch_assoc($resultado);
+    return $array['total'];
 }
 
 function countLostBets($conn)
