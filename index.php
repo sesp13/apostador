@@ -1,4 +1,6 @@
-<?php include_once 'partials/header.php' ?>
+<?php include_once 'partials/header.php';
+include_once './logic/bet-pagination.php';
+?>
 <div class="row mt-2">
     <div class="col-12">
         <a href="add-bet.php" class="btn btn-success">Agregar apuesta</a>
@@ -21,7 +23,6 @@
             </thead>
             <tbody>
                 <?php
-                include_once './logic/bet-pagination.php';
                 $arrayApuestas = getBetsPaginated($conn, $start, $itemsPerPage);
                 foreach ($arrayApuestas as $apuesta) :
                 ?>

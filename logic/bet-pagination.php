@@ -23,6 +23,15 @@ if ($num_total_rows > 0) {
     }
     //calculo el total de paginas
     $total_pages = ceil($num_total_rows / $itemsPerPage);
+
+    if ($page > $total_pages) {
+        echo "
+            <h1> 404 Página no disponible </h1>
+            <script>
+                location.href = 'index.php';
+            </script>
+        ";
+    }
 }
 
 function createPaginator($total_pages, $page)
@@ -35,8 +44,11 @@ function createPaginator($total_pages, $page)
             echo '<li class="page-item"><a class="page-link" href="index.php?page=' . ($page - 1) . '"><span aria-hidden="true">&laquo;</span></a></li>';
         }
 
-        if ($page > 3) {
-            $rangoInicio = $page - 3;
+        if ($page > 4) {
+            //Primera página por defecto
+            echo "<li class='page-item'><a class='page-link' href='index.php?page=1'>1</a></li>";
+            echo "<li class='page-item'><a class='page-link'>...</a></li>";
+            $rangoInicio = $page - 2;
             $rangoFin = $page  + 3 > $total_pages ?  $total_pages : $page + 3;
         } else {
             $rangoInicio = 1;
@@ -47,8 +59,15 @@ function createPaginator($total_pages, $page)
             if ($page == $i) {
                 echo "<li class='page-item active'><a class='page-link' href='#'>$page</a></li>";
             } else {
-                echo '<li class="page-item"><a class="page-link" href="index.php?page=' . $i . '">' . $i . '</a></li>';
+                //Manejos para la páginación de la ultima página
+                if ($i != $total_pages - 1)
+                    echo '<li class="page-item"><a class="page-link" href="index.php?page=' . $i . '">' . $i . '</a></li>';
             }
+        }
+
+        if ($rangoFin != $total_pages) {
+            echo "<li class='page-item'><a class='page-link'>...</a></li>";
+            echo "<li class='page-item'><a class='page-link' href='index.php?page={$total_pages}'>{$total_pages}</a></li>";
         }
 
         if ($page != $total_pages) {
