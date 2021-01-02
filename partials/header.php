@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Banco de apuestas</title>
+    <title>Banco de apuestas para ardillas</title>
 </head>
 
 <body>
@@ -53,7 +53,14 @@
         </div>
 
         <a href="index.php">
-            <h1>Banco de apuestas para Ardillas</h1>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>Banco de apuestas para Ardillas</h1>
+                </div>
+                <div class="col-lg-6">
+                    <img src="assets/scrat.jpg" alt="Imagen de una ardilla" class="scrat-img">
+                </div>
+            </div>
         </a>
         <div class="row">
             <div class="col-12 col-lg-6">
@@ -71,7 +78,7 @@
                         Porcentaje del bank: <span class="moneda"> <?php echo getPorcentaje($conn) ?></span> %
                     </div>
                 </div>
-                <img src="assets/ardilla.png" alt="Imagen de una ardilla" class="ardilla-img">
+                <img src="assets/ardilla.png" alt="Imagen de una ardilla" class="ardilla-img d-none d-lg-block">
             </div>
             <div class="col-12 col-lg-3">
                 <div class="row">
