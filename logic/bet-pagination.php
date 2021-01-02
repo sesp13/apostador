@@ -60,7 +60,7 @@ function createPaginator($total_pages, $page)
                 echo "<li class='page-item active'><a class='page-link' href='#'>$page</a></li>";
             } else {
                 //Manejos para la páginación de la ultima página
-                if ($i != $total_pages - 1)
+                if ($i != $total_pages - 1 || $rangoFin == $total_pages)
                     echo '<li class="page-item"><a class="page-link" href="index.php?page=' . $i . '">' . $i . '</a></li>';
             }
         }
