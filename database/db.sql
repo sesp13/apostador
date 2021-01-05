@@ -37,6 +37,8 @@ INSERT INTO stake VALUES(null, 'Stake 4', 2500, 4);
 INSERT INTO stake VALUES(null, 'Stake 5', 2500, 5);
 INSERT INTO stake VALUES(null, 'Stake 6', 2500, 6);
 INSERT INTO stake VALUES(null, 'Stake 0.5', 2500, 0.5);
+INSERT INTO stake VALUES(null, 'Stake 1.5', 2500, 1.5);
+INSERT INTO stake VALUES(null, 'Stake 0.25', 2500, 0.25);
 
 CREATE TABLE apuesta(
 id              int(255) auto_increment not null,
