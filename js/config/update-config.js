@@ -1,19 +1,21 @@
-$("#add-bet-form").submit(function (event) {
-  event.preventDefault();
+"use strict";
 
+$("#configForm").submit(function (event) {
+  event.preventDefault();
   let boton = $(".botonSubmit");
   boton.attr("disabled", true);
 
-  //Armado del objeto
-  let apuesta = {
-    descripcion: $("#descripcion").val(),
-    stake: $("#stake-select").val(),
-    cuota: $("#cuota").val(),
-    valorStake: $("#valorStake").val(),
+  //Objeto
+  let objeto = {
+    bank: {
+      valorInicial: $("#bancoInicial").val(),
+      porcentaje: $("#porcentaje").val(),
+    },
     enviar: true,
   };
 
-  let successFunction = function (response) {
+  let successFunctionPost = function (response) {
+    boton.attr("disabled", false);
     response = JSON.parse(response);
     if (response.success) {
       Swal.fire({
@@ -21,7 +23,7 @@ $("#add-bet-form").submit(function (event) {
         icon: "success",
         text: response.message,
       }).then(() => {
-        location.href = "index.php";
+        location.reload();
       });
     } else {
       boton.attr("disabled", false);
@@ -33,7 +35,7 @@ $("#add-bet-form").submit(function (event) {
     }
   };
 
-  let errorFunction = function (error) {
+  let errorFunctionPost = function (error) {
     boton.attr("disabled", false);
     error = JSON.parse(error);
     Swal.fire({
@@ -43,8 +45,13 @@ $("#add-bet-form").submit(function (event) {
     });
   };
 
-  let host = $("#host").text();
-  let url = `${host}api/add-bet.php`;
+  let urlPost = `${host}api/config/update-config.php`;
 
-  hacerPeticion(url, "POST", apuesta, successFunction, errorFunction);
+  hacerPeticion(
+    urlPost,
+    "POST",
+    objeto,
+    successFunctionPost,
+    errorFunctionPost
+  );
 });

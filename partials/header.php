@@ -52,8 +52,8 @@
             </div>
         </div>
 
-        <a href="index.php">
-            <h1>Banco de apuestas</h1>
+        <a href="index.php" id="logo">
+            Banco de apuestas
         </a>
         <div class="row">
             <div class="col-12 col-lg-6">
@@ -69,6 +69,13 @@
                     </div>
                     <div class="col-12">
                         Porcentaje del bank: <span class="moneda"> <?php echo getPorcentaje($conn) ?></span> %
+                    </div>
+                    <div class="col-12">
+                        <?php if (basename($_SERVER['PHP_SELF']) == 'config.php') : ?>
+                            <a href="index.php" class="btn btn-dark">Inicio</a>
+                        <?php else : ?>
+                            <a href="config.php" class="btn btn-dark">Configuración</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
