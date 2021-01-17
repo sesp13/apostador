@@ -5,6 +5,9 @@ include_once './logic/bet-pagination.php';
     <div class="col-12">
         <a href="add-bet.php" class="btn btn-success">Agregar apuesta</a>
     </div>
+    <div class="col-12 mt-2">
+        <h1 class="text-right">Listado de apuestas</h1>
+    </div>
     <div class="col-12 mt-3">
         <table class="table table-responsive">
             <thead>

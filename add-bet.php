@@ -1,7 +1,7 @@
 <?php include_once 'partials/header.php' ?>
-<h2 class="text-center mt-3">
+<h1 class="text-center mt-3">
     Agregar apuesta
-</h2>
+</h1>
 <div class="form-section">
     <form class="form row" method="POST" id="add-bet-form">
         <div class="form-group col-12">
@@ -28,7 +28,7 @@
             <input type="text" name="valorStake" id="valorStake" class="form-control" value="<?php echo $arrayStakes[0]['valor'] ?>">
         </div>
         <div class="form-group col-12">
-            <input type="submit" class="btn btn-success" name="enviar" value="Agregar">
+            <input type="submit" class="btn btn-success botonSubmit" name="enviar" value="Agregar">
         </div>
     </form>
 </div>
