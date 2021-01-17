@@ -28,8 +28,7 @@ if (isset($_POST['enviar'])) {
         if (!$resultBank['success'])
             throw new Exception($resultBank['message']);
 
-        $bank = getBank($conn);
-        updateBankAndStakes($conn, $bank['valorActual']);
+        setRealBank($conn);
 
         //-------------- Actualizacion de datos --------------------
         $result['success'] = true;
