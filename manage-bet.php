@@ -1,9 +1,9 @@
 <?php include_once 'partials/header.php';
 $apuesta = getBetById($conn, $_GET['id']);
 ?>
-<h2 class="text-center mt-3">
+<h1 class="text-center mt-3">
     Gestionar apuesta
-</h2>
+</h1>
 <div class="form-section">
     <form class="form row" method="POST" id="manage-bet-form">
         <div class="form-group col-12">
@@ -52,7 +52,7 @@ $apuesta = getBetById($conn, $_GET['id']);
             <input type="date" name="fecha" id="fecha" class="form-control" value="<?php echo $apuesta['fecha'] ?>">
         </div>
         <div class="form-group col-12">
-            <input type="submit" class="btn btn-success" name="enviar" value="Actualizar">
+            <input type="submit" class="btn btn-success botonSubmit" name="enviar" value="Actualizar">
         </div>
     </form>
 </div>

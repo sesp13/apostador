@@ -35,6 +35,16 @@ function updateBank($conn, $valor)
     $resultado = mysqli_query($conn, $consulta);
 }
 
+function updateBankEntitie($conn, $entity){
+    $consulta = "UPDATE banco SET valorInicial = {$entity['valorInicial']}, porcentaje = {$entity['porcentaje']}  WHERE id = 1";
+    $resultado = mysqli_query($conn, $consulta);
+    if ($resultado) {
+        return ['success' => true, 'message' => 'El banco se ha actualizado correctamente'];
+    } else {
+        return ['success' => false, 'message' => 'error' . mysqli_error($conn)];
+    }
+}
+
 function getPorcentaje($conn)
 {
     $consulta = "SELECT porcentaje FROM banco WHERE id = 1";

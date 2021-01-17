@@ -55,13 +55,14 @@
         <a href="index.php">
             <div class="row">
                 <div class="col-lg-6">
-                    <h1>Banco de apuestas para Ardillas</h1>
+                    <h1 id="logo">Banco de apuestas para Ardillas</h1>
                 </div>
                 <div class="col-lg-6">
                     <img src="assets/scrat.jpg" alt="Imagen de una ardilla" class="scrat-img">
                 </div>
             </div>
         </a>
+
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="row">
@@ -77,8 +78,14 @@
                     <div class="col-12">
                         Porcentaje del bank: <span class="moneda"> <?php echo getPorcentaje($conn) ?></span> %
                     </div>
+                    <div class="col-12">
+                        <?php if (basename($_SERVER['PHP_SELF']) == 'config.php') : ?>
+                            <a href="index.php" class="btn btn-dark">Inicio</a>
+                        <?php else : ?>
+                            <a href="config.php" class="btn btn-dark">Configuración</a>
+                        <?php endif; ?>
+                    </div>
                 </div>
-                <img src="assets/ardilla.png" alt="Imagen de una ardilla" class="ardilla-img d-none d-lg-block">
             </div>
             <div class="col-12 col-lg-3">
                 <div class="row">
@@ -104,6 +111,9 @@
                     </div>
                     <div class="col-12">
                         Apuestas perdidas: <?php echo countLostBets($conn); ?>
+                    </div>
+                    <div class="col-12">
+                        <img src="assets/ardilla.png" alt="Imagen de una ardilla" class="ardilla-img d-none d-lg-block">
                     </div>
                 </div>
             </div>
