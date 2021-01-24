@@ -8,6 +8,7 @@ let successFunctionGet = function (response) {
   response = JSON.parse(response);
   if (response.success) {
     setConfig(response.message);
+    setStakes(response.message);
   } else {
     location.href = "index.php";
   }
@@ -23,6 +24,18 @@ function setConfig(entity) {
   let porcentajeSelector = $("#porcentaje");
   valorInicialSelector.val(bank.valorInicial);
   porcentajeSelector.val(bank.porcentaje);
+}
+
+function setStakes(entity) {
+  let stakes = entity.stakes;
+  let stakeSelector = $("#stakesPrincipalesSelect");
+
+  stakes.forEach((element) => {
+    stakeSelector.append(
+      `<option value="${element.id}">${element.nombre}</option>`
+    );
+  });
+
 }
 
 $(document).ready(function () {

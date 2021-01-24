@@ -103,4 +103,7 @@ $(document).ready(function () {
 
     return suma;
   }
+
+  $('.select-2').select2();
+
 });
