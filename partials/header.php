@@ -101,10 +101,14 @@
                         </div>
                     <?php endforeach; ?>
                     <div class="col-12 mt-2">
-                        <button class="btn btn-warning mb-lg-2 hasTooltip" id="showStakesButton" show="true" data-toggle="tooltip" data-placement="right" title="Muestra o no el valor de tus stakes en el encabezado de la página, los valores a mostrar los puedes configurar en el menú de configuración">
+                        <button class="btn btn-warning mb-2 d-none d-lg-block showStakesButton hasTooltip" id="showStakesButton" show="true" data-toggle="tooltip" data-placement="right" title="Muestra o no el valor de tus stakes en el encabezado de la página, los valores a mostrar los puedes configurar en el menú de configuración">
                             Mostrar todos los stakes
                         </button>
-                        <a href="logic/update-stakes.php" class="btn btn-primary hasTooltip" data-toggle="tooltip" data-placement="right" title="Sirve para corregir descuadres en el bank y los stakes dando como resultado los movimientos reales">
+                        <!-- Boton responsive -->
+                        <button class="btn btn-warning d-lg-none hasTooltip showStakesButton mb-2" id="showStakesButtonR" show="true">
+                            Mostrar todos los stakes
+                        </button>
+                        <a href="logic/update-stakes.php" class="btn btn-primary hasTooltip mb-2" data-toggle="tooltip" data-placement="right" title="Sirve para corregir descuadres en el bank y los stakes dando como resultado los movimientos reales">
                             Corregir Bank
                         </a>
                     </div>
