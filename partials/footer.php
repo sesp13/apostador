@@ -10,6 +10,7 @@
 <script type="text/javascript" src="js/imports/popper.js"></script>
 <script type="text/javascript" src="js/imports/sweetAlert.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/imports/select2.min.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>

@@ -7,8 +7,10 @@ include_once '../../helpers/functions.php';
 $result = [];
 
 $bank = getBank($conn);
+$stakes = getAllStakes($conn);
+$configuracion = getConfiguracion($conn);
 
-$messageApi = ['bank' => $bank];
+$messageApi = ['bank' => $bank, 'stakes' => $stakes, 'configuracion' => $configuracion];
 
 $result = ['success' => true,  'message' => $messageApi];
 

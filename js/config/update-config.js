@@ -11,6 +11,7 @@ $("#configForm").submit(function (event) {
       valorInicial: $("#bancoInicial").val(),
       porcentaje: $("#porcentaje").val(),
     },
+    stakes: $("#stakesPrincipalesSelect").val(),
     enviar: true,
   };
 

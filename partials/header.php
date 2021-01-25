@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link href="css/imports/select2.min.css" rel="stylesheet" />
     <title>Banco de apuestas para ardillas</title>
 </head>
 
@@ -82,7 +83,9 @@
                         <?php if (basename($_SERVER['PHP_SELF']) == 'config.php') : ?>
                             <a href="index.php" class="btn btn-dark">Inicio</a>
                         <?php else : ?>
-                            <a href="config.php" class="btn btn-dark">Configuración</a>
+                            <a href="config.php" class="btn btn-dark hasTooltip" show="true" data-toggle="tooltip" data-placement="right" title="En esta página podrás modificar los datos generales de la aplicación">
+                                Configuración
+                            </a>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -93,12 +96,15 @@
                     $arrayStakes = getAllStakes($conn);
                     foreach ($arrayStakes as $stake) :
                     ?>
-                        <div class="col-12">
+                        <div class="col-12 stake-col" id="stake-<?php echo $stake['id'] ?>">
                             <?php echo "{$stake['nombre']} - valor: <span class='moneda'>{$stake['valor']}"; ?> </span>
                         </div>
                     <?php endforeach; ?>
                     <div class="col-12 mt-2">
-                        <a href="logic/update-stakes.php" class="btn btn-primary" tooltip="Actualiza el valor de los stakes después de cambiar el valor del bank por db">
+                        <button class="btn btn-warning mb-lg-2 hasTooltip" id="showStakesButton" show="true" data-toggle="tooltip" data-placement="right" title="Muestra o no el valor de tus stakes en el encabezado de la página, los valores a mostrar los puedes configurar en el menú de configuración">
+                            Mostrar todos los stakes
+                        </button>
+                        <a href="logic/update-stakes.php" class="btn btn-primary hasTooltip" data-toggle="tooltip" data-placement="right" title="Sirve para corregir descuadres en el bank y los stakes dando como resultado los movimientos reales">
                             Corregir Bank
                         </a>
                     </div>
