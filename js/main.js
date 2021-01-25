@@ -133,7 +133,7 @@ $(document).ready(function () {
     }
   );
 
-  $("#showStakesButton").click(function () {
+  $(".showStakesButton").click(function () {
     let selector = $(this);
     let state = selector.attr("show");
     if (state == "true") {
