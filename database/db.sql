@@ -61,3 +61,10 @@ correo          varchar(100) not null UNIQUE,
 contrasena      varchar(255) not null,
 CONSTRAINT pk_usuario PRIMARY KEY(id)
 )ENGINE=InnoDb;
+
+CREATE TABLE configuracion(
+    id int(255) auto_increment not null,
+    stakesPrincipales varchar(255),
+    CONSTRAINT pk_usuario PRIMARY KEY(id)
+)ENGINE=InnoDb;
+INSERT INTO configuracion VALUES(null, '');

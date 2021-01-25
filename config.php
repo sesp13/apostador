@@ -16,6 +16,12 @@
             <input type="number" step="any" name="porcentaje" id="porcentaje" class="form-control">
         </div>
 
+        <div class="form-group col-md-7">
+            <label for="">Stakes principales</label>
+            <select name="stakesPrincipalesSelect" id="stakesPrincipalesSelect" class="form-control select-2" multiple>
+            </select>
+        </div>
+
         <div class="form-group col-12">
             <input type="submit" value="Actualizar" class="btn btn-success botonSubmit">
         </div>

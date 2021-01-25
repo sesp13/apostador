@@ -35,7 +35,8 @@ function updateBank($conn, $valor)
     $resultado = mysqli_query($conn, $consulta);
 }
 
-function updateBankEntitie($conn, $entity){
+function updateBankEntitie($conn, $entity)
+{
     $consulta = "UPDATE banco SET valorInicial = {$entity['valorInicial']}, porcentaje = {$entity['porcentaje']}  WHERE id = 1";
     $resultado = mysqli_query($conn, $consulta);
     if ($resultado) {
@@ -284,7 +285,8 @@ function updateBet($conn, $array)
     }
 }
 
-function countAllBets($conn){
+function countAllBets($conn)
+{
     $consulta = "SELECT COUNT(id) as 'total' FROM apuesta";
     $resultado = mysqli_query($conn, $consulta);
     $array = mysqli_fetch_assoc($resultado);
@@ -344,6 +346,24 @@ function corregirEncode($conn)
     }
 }
 
+//Funciones de configuracion
+function getConfiguracion($conn){
+    $consulta = "SELECT * FROM configuracion WHERE id = 1";
+    $resultado = mysqli_query($conn, $consulta);
+    $array = mysqli_fetch_assoc($resultado);
+    return $array;
+}
+
+function updateConfiguracion($conn, $entity)
+{
+    $consulta = "UPDATE configuracion SET stakesPrincipales = {$entity['stakesPrincipales']} WHERE id = 1";
+    $resultado = mysqli_query($conn, $consulta);
+    if ($resultado) {
+        return ['success' => true, 'message' => 'La configuración se ha actualizado correctamente'];
+    } else {
+        return ['success' => false, 'message' => 'error' . mysqli_error($conn)];
+    }
+}
 
 //Funciones de usuario
 function getUser($conn, $email)
