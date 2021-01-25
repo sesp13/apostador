@@ -8,8 +8,9 @@ $result = [];
 
 $bank = getBank($conn);
 $stakes = getAllStakes($conn);
+$configuracion = getConfiguracion($conn);
 
-$messageApi = ['bank' => $bank, 'stakes' => $stakes];
+$messageApi = ['bank' => $bank, 'stakes' => $stakes, 'configuracion' => $configuracion];
 
 $result = ['success' => true,  'message' => $messageApi];
 

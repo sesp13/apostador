@@ -9,10 +9,11 @@ $result = [];
 if (isset($_POST['enviar'])) {
     try {
         //Recepcion de datos
-        $bank = $_POST['bank'];
+        $bank = isset($_POST['bank']) ? $_POST['bank'] : null;
+        $stakesPrincipales = isset($_POST['stakes']) ? $_POST['stakes'] : null;
 
         //---------------------- Validaciones ----------------------
-        if ($bank['valorInicial'] == null || $bank['valorInicial'] == ""  || !is_numeric($bank['valorInicial']))
+        if ($bank == null || $bank['valorInicial'] == null || $bank['valorInicial'] == ""  || !is_numeric($bank['valorInicial']))
             throw new Exception("El valor inicial no es válido");
 
         if ($bank['porcentaje'] == null || $bank['porcentaje'] == ""  || !is_numeric($bank['porcentaje']))
@@ -22,11 +23,29 @@ if (isset($_POST['enviar'])) {
             throw new Exception("El porcentaje no puede ser negativo");
         // -------------------- Fin Validaciones -------------------
 
+        // -------------------- Procesamiento de datos -------------------
+        $entityConfiguracion = [];
+        $stakesPrincipalesString = "'";
+        if ($stakesPrincipales == null || $stakesPrincipales == []) {
+            $stakesPrincipalesString = 'NULL';
+        } else {
+            foreach ($stakesPrincipales as $stake) {
+                $stakesPrincipalesString .= $stake . '-';
+            }
+            $stakesPrincipalesString .= "'";
+        }
+
+        $entityConfiguracion['stakesPrincipales'] =  $stakesPrincipalesString;
+        // -------------------- Fin Procesamiento datos -------------------
 
         //------------------ Actualizacion de datos --------------------
         $resultBank = updateBankEntitie($conn, $bank);
         if (!$resultBank['success'])
             throw new Exception($resultBank['message']);
+
+        $resultConfiguracion = updateConfiguracion($conn, $entityConfiguracion);
+        if (!$resultConfiguracion['success'])
+            throw new Exception($resultConfiguracion['message']);
 
         setRealBank($conn);
 

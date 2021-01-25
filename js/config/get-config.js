@@ -2,7 +2,7 @@
 
 //Seteado de los parametros de configuracion
 let host = $("#host").text();
-let urlGet = `${host}/api/config/get-config.php`;
+let urlGet = `${host}api/config/get-config.php`;
 
 let successFunctionGet = function (response) {
   response = JSON.parse(response);
@@ -30,9 +30,14 @@ function setStakes(entity) {
   let stakes = entity.stakes;
   let stakeSelector = $("#stakesPrincipalesSelect");
 
+  //Procesamiento de stakes seleccionados
+  let stakesSeleccionados = getStakesPrincipales(entity);
+  
+  let optionSeleccionado = "";
   stakes.forEach((element) => {
+    optionSeleccionado = stakesSeleccionados.includes(element.id) ? "selected" : "";
     stakeSelector.append(
-      `<option value="${element.id}">${element.nombre}</option>`
+      `<option value="${element.id}" ${optionSeleccionado}>${element.nombre}</option>`
     );
   });
 
