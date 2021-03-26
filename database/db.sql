@@ -35,6 +35,7 @@ INSERT INTO stake VALUES(null, 'Stake 2', 10000, 2);
 INSERT INTO stake VALUES(null, 'Stake 3', 15000, 3);
 INSERT INTO stake VALUES(null, 'Stake 4', 2500, 4);
 INSERT INTO stake VALUES(null, 'Stake 5', 2500, 5);
+INSERT INTO stake VALUES(null, 'Stake 6', 2500, 6);
 INSERT INTO stake VALUES(null, 'Stake 7', 2500, 7);
 INSERT INTO stake VALUES(null, 'Stake 8', 2500, 8);
 INSERT INTO stake VALUES(null, 'Stake 9', 2500, 9);
